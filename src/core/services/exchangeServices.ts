@@ -13,8 +13,8 @@ export default class Service {
 
   async getCurrencies(): Promise<ApiResponse | object> {
     try {
-      const data = await axios.get(this.url);
-      return data;
+      const response = await axios.get(this.url);
+      return response.data;
     } catch (error) {
       return {};
     }
