@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import Service from "../exchangeServices";
 
 export const currenciesData = {
@@ -15,37 +13,30 @@ export const currenciesData = {
   },
 };
 
-jest.mock("axios");
+global.fetch = jest
+  .fn()
+  .mockResolvedValueOnce({
+    json: () => Promise.resolve(currenciesData),
+  })
+  .mockRejectedValueOnce(new Error());
 
 describe("Services works correctly", () => {
   const service = new Service();
 
   describe("when API call is successful", () => {
-    test("should return currencies object", async () => {
-      // @ts-ignore
-      axios.get.mockResolvedValueOnce(currenciesData);
-
-      // when
+    it("should return currencies object", async () => {
       const result = await service.getCurrencies();
 
-      // then
-      expect(axios.get).toHaveBeenCalledWith(service.url);
+      expect(fetch).toHaveBeenCalledWith(service.url);
       expect(result).toEqual(currenciesData);
     });
   });
 
   describe("when API call fails", () => {
-    test("should return empty object", async () => {
-      // given
-      const message = "Network Error";
-      // @ts-ignore
-      axios.get.mockRejectedValueOnce(new Error(message));
-
-      // when
+    it("should return empty object", async () => {
       const result = await service.getCurrencies();
 
-      // then
-      expect(axios.get).toHaveBeenCalledWith(service.url);
+      expect(fetch).toHaveBeenCalledWith(service.url);
       expect(result).toEqual({});
     });
   });

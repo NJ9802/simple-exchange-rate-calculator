@@ -1,29 +1,39 @@
 import Service from "@/core/services/exchangeServices";
 import ServiceInteractor from "../serviceInteractor";
-import axios from "axios";
 import { currenciesData } from "@/core/services/__tests__/exchangeServices.test";
 
-jest.mock("axios");
+global.fetch = jest
+  .fn()
+  .mockResolvedValueOnce({
+    json: () => Promise.resolve(currenciesData),
+  })
+  .mockRejectedValueOnce(new Error())
+  .mockResolvedValueOnce({
+    json: () => Promise.resolve(currenciesData),
+  })
+  .mockRejectedValueOnce(new Error());
 
-describe("When ServiceInteractor calls service", () => {
+describe("Service interactor works correctly", () => {
   const service = new Service();
   const serviceInteractor = new ServiceInteractor(service);
+  
+  describe("When ServiceInteractor calls service", () => {
+    it("should returns an currencies array", async () => {
+      const result = await serviceInteractor.getCurrencies();
 
-  test("should returns an currencies array", async () => {
-    // @ts-ignore
-    axios.get.mockResolvedValueOnce(currenciesData);
+      expect(fetch).toHaveBeenCalledWith(service.url);
 
-    const result = await serviceInteractor.getCurrencies();
-
-    expect(result.length).toBe(4);
+      expect(result.length).toBe(4);
+    });
   });
 
-  test("if fail, should return an empty array", async () => {
-    // @ts-ignore
-    axios.get.mockResolvedValueOnce(new Error());
+  describe("when API call fails", () => {
+    it("should return an empty array", async () => {
+      const result = await serviceInteractor.getCurrencies();
+      
+      expect(fetch).toHaveBeenCalledWith(service.url);
 
-    const result = await serviceInteractor.getCurrencies();
-
-    expect(result.length).toBe(0);
+      expect(result.length).toBe(0);
+    });
   });
 });

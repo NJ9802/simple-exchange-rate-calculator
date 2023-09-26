@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export interface ApiResponse {
   success: boolean;
   timestamp: number;
@@ -13,8 +11,8 @@ export default class Service {
 
   async getCurrencies(): Promise<ApiResponse | object> {
     try {
-      const response = await axios.get(this.url);
-      return response.data;
+      const response = await fetch(this.url);
+      return await response.json();
     } catch (error) {
       return {};
     }
