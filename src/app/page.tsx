@@ -4,6 +4,8 @@ import AppController from "@/infrastructure/controllers/AppController";
 
 import "material-symbols/outlined.css";
 
+export const revalidate = 600;
+
 export default async function AppPresenter() {
   const service = new Service();
   const serviceInteractor = new ServiceInteractor(service);
