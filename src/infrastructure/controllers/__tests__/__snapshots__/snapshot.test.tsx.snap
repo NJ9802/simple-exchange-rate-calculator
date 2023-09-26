@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppController renders correctly 1`] = `
+[
+  <div
+    className="sc-iBdoyZ elXume"
+  >
+    <h1
+      className="sc-fsYfxw fasZgm"
+    >
+      Exchange Rate Calculator
+    </h1>
+  </div>,
+  <div
+    className="sc-qZruQ dcTsFz"
+  >
+    <div
+      className="sc-jsEeA-d gMYvCH"
+    >
+      <div
+        className="sc-kFCrIq iLNrCN"
+      >
+        <label>
+          FROM
+        </label>
+        <div
+          className="sc-beyTiQ blxIGe"
+        >
+          <div
+            className="sc-guDMob cVsIDT"
+          >
+            <label
+              className="sc-dmyDmy eqZkmd"
+              data-testid="currencyLabel"
+            >
+              Select
+            </label>
+            <button
+              className="sc-hLQTFJ eKqMAf"
+              onClick={[Function]}
+            >
+              <span
+                className="material-symbols-outlined"
+              >
+                arrow_right
+              </span>
+            </button>
+          </div>
+          <div
+            className="sc-eDLKEg hSrwAa"
+            open={false}
+          >
+            <div
+              className="sc-jTQDJr beNLUK"
+              onClick={[Function]}
+            >
+              USD
+            </div>
+            <div
+              className="sc-jTQDJr beNLUK"
+              onClick={[Function]}
+            >
+              EUR
+            </div>
+          </div>
+        </div>
+        <input
+          className="sc-irLvoH BcqRO"
+          onChange={[Function]}
+          placeholder="Amount"
+          type="number"
+        />
+      </div>
+      <button
+        className="sc-gLLuHO sc-csKJRI hpjupR ORgWz"
+        disabled={true}
+        onClick={[Function]}
+      >
+        <span
+          className="material-symbols-outlined"
+        >
+          sync_alt
+        </span>
+      </button>
+      <div
+        className="sc-kFCrIq iLNrCN"
+      >
+        <label>
+          TO
+        </label>
+        <div
+          className="sc-beyTiQ blxIGe"
+        >
+          <div
+            className="sc-guDMob cVsIDT"
+          >
+            <label
+              className="sc-dmyDmy eqZkmd"
+              data-testid="currencyLabel"
+            >
+              Select
+            </label>
+            <button
+              className="sc-hLQTFJ eKqMAf"
+              onClick={[Function]}
+            >
+              <span
+                className="material-symbols-outlined"
+              >
+                arrow_right
+              </span>
+            </button>
+          </div>
+          <div
+            className="sc-eDLKEg hSrwAa"
+            open={false}
+          >
+            <div
+              className="sc-jTQDJr beNLUK"
+              onClick={[Function]}
+            >
+              USD
+            </div>
+            <div
+              className="sc-jTQDJr beNLUK"
+              onClick={[Function]}
+            >
+              EUR
+            </div>
+          </div>
+        </div>
+        <label
+          className="sc-eTNxZ jjRhPM"
+          data-testid="resultAmountLabel"
+        >
+          -
+        </label>
+      </div>
+    </div>
+    <label
+      className="sc-eTNxZ sc-brSaGm jjRhPM VIRfR"
+      data-testid="exchangeRateLabel"
+    >
+      Exchange rate: 
+      -
+    </label>
+    <button
+      className="sc-gLLuHO sc-ktwNLz hpjupR bnoeuw"
+      disabled={true}
+      onClick={[Function]}
+    >
+      CALCULATE
+    </button>
+  </div>,
+]
+`;
