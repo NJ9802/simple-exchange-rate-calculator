@@ -26,4 +26,4 @@ To run the tests for this project, simply run the following command:
 npm test
 ```
 
-This will run all of the tests for the application.
+This will run all of the tests for the application
